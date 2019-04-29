@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Markdown rendering</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="js/lib/prism.css">
+</head>
+
+<body>
+  <markdown>
+# Markdown JavaScript render comparison
+
+![][2]
+
+[The original Markdown][1] was written by John Gruber.
+
+[Fletcher Penney][4] extended Markdown as MultiMarkdown to include tables, definition lists, footnotes, and other features.
+
+
+## Random remote image
+
+[![][3]](https://unsplash.it)
+
+
+## Three Markdown JavaScript converters
+
+(Marked enabled by default)
+
+| [Marked.js](https://github.com/JefferyWang/marked) | [Remarkable.js](https://github.com/jonschlinkert/remarkable) | [Showdown.js](https://github.com/showdownjs/showdown) |
+| --- | --- | --- |
+| tables | no tables | tables: default false |
+| [class="lang-js"](https://github.com/JefferyWang/marked#highlight) (prism.js works) | [class="language-js"](https://github.com/jonschlinkert/remarkable#syntax-highlighting highlight.js) | class="js language-js" (GFM [Linguist](https://github.com/github/linguist)) |
+| no definition lists | no definition lists | no definition lists |
+| `marked()` | `md.render()` | converter.makeHtml() |
+
+
+## To do list
+
+* [x] module marking
+* [ ] module report
+* [ ] module pack
+
+
+## Blockquote
+
+> Some text in a blockquote.
+
+
+## Definition lists
+
+Marked.js
+: Jeffery someone
+
+Remarkable.js
+: Jon Schlinkert
+
+Showdown
+: name?
+
+
+## Code snippets in Markdown
+
+(Require syntax highlighting libraries - see table above)
+
+### JavaScript
+
+```js
+function marking() = {
+  console.log("Stress!";
+}
+```
+
+### Python
+
+```python
+def marking:
+  print "More stress!"
+
+```
+
+### Code diff
+
+Mark what should be removed and/or added
+
+```diff
+- eu = "breakfast"
++ eu = "I meant Bre…"
+```
+
+---
+
+[1]: https://daringfireball.net/projects/markdown/syntax "Markdown was written by John Gruber"
+[2]: https://upload.wikimedia.org/wikipedia/commons/6/64/John_Gruber%2C_2009_%28cropped%29.jpg "John Gruber (younger version)"
+[3]: https://unsplash.it/200/90/?random "Unsplash placeholder image"
+[4]: http://fletcherpenney.net/multimarkdown
+
+  </markdown>
+
+  <script src="js/lib/prism.js"></script>
+  <script src="js/lib/remarkable.min.js"></script>
+  <script src="js/lib/marked.min.js"></script>
+  <script src="js/lib/showdown.min.js"></script>
+  <script src="js/md-convert.js"></script>
+
+</body>
+</html>
